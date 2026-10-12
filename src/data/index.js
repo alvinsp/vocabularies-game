@@ -20,7 +20,15 @@ export const getStats = () => {
     verbs: allVocabulary.filter(item => item.pos === 'verb').length,
     adjectives: allVocabulary.filter(item => item.pos === 'adjective').length,
     adverbs: allVocabulary.filter(item => item.pos === 'adverb').length,
+    c1c2: allVocabulary.filter(item => item.level === 'C1' || item.level === 'C2').length,
   };
+};
+
+// Shuffles an array and returns a subset (e.g. 50 random cards)
+export const getRandomBatch = (arr, count = 50) => {
+  if (!arr || arr.length === 0) return [];
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, Math.min(count, shuffled.length));
 };
 
 export const filterVocabulary = ({
@@ -44,7 +52,13 @@ export const filterVocabulary = ({
 
     if (type !== 'all' && item.type !== type) return false;
     if (pos !== 'all' && item.pos !== pos) return false;
-    if (level !== 'all' && item.level !== level) return false;
+    if (level !== 'all') {
+      if (level === 'advanced') {
+        if (item.level !== 'C1' && item.level !== 'C2') return false;
+      } else if (item.level !== level) {
+        return false;
+      }
+    }
 
     if (statusFilter === 'mastered' && !masteredIds.has(item.id)) return false;
     if (statusFilter === 'review' && !reviewIds.has(item.id)) return false;

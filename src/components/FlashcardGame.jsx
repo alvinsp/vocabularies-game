@@ -11,7 +11,9 @@ import {
   AlertCircle, 
   HelpCircle,
   Sparkles,
-  BookMarked
+  BookMarked,
+  Trophy,
+  ArrowRight
 } from 'lucide-react';
 import { sounds } from '../utils/soundEffects';
 import { speechAssistant } from '../utils/speechUtils';
@@ -29,15 +31,20 @@ export default function FlashcardGame({
   accent
 }) {
   const [activeFilter, setActiveFilter] = useState('all'); // 'all', 'phrasal_verb', 'collocation', 'oxford_3000', 'noun', 'verb', 'adjective', 'adverb'
-  const [levelFilter, setLevelFilter] = useState('all'); // 'all', 'A1', 'A2', 'B1', 'B2'
+  const [levelFilter, setLevelFilter] = useState('all'); // 'all', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'
   const [statusFilter, setStatusFilter] = useState('all'); // 'all', 'unlearned', 'review', 'mastered', 'favorites'
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [speaking, setSpeaking] = useState(false);
+  const [isSessionComplete, setIsSessionComplete] = useState(false);
 
-  // Filter list
+  // 50-Card Batch Mode
+  const [isBatchMode, setIsBatchMode] = useState(true);
+  const [sessionKey, setSessionKey] = useState(0);
+
+  // Base Filtered list
   const filteredList = useMemo(() => {
     return allVocabulary.filter((item) => {
       // Type or POS filter
@@ -62,15 +69,36 @@ export default function FlashcardGame({
     });
   }, [activeFilter, levelFilter, statusFilter, masteredIds, reviewIds, favoriteIds]);
 
-  // Current Card
-  const currentCard = filteredList[currentIndex] || null;
+  // Active Deck: randomized 50 cards if in batch mode, or all filtered cards
+  const activeDeck = useMemo(() => {
+    if (filteredList.length === 0) return [];
+    if (!isBatchMode) return filteredList;
+    
+    // Shuffled copy
+    const shuffled = [...filteredList].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, Math.min(50, shuffled.length));
+  }, [filteredList, isBatchMode, sessionKey]);
 
-  // Reset index when filter changes
+  // Current Card
+  const currentCard = activeDeck[currentIndex] || null;
+
+  // Reset index when filter or deck changes
   useEffect(() => {
     setCurrentIndex(0);
     setIsFlipped(false);
     setShowHint(false);
-  }, [activeFilter, levelFilter, statusFilter]);
+    setIsSessionComplete(false);
+  }, [activeFilter, levelFilter, statusFilter, isBatchMode, sessionKey]);
+
+  // Trigger new random 50 batch
+  const handleNewRandomBatch = () => {
+    sounds.playPop();
+    setSessionKey(prev => prev + 1);
+    setCurrentIndex(0);
+    setIsFlipped(false);
+    setShowHint(false);
+    setIsSessionComplete(false);
+  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -82,11 +110,14 @@ export default function FlashcardGame({
         nextCard();
       } else if (e.code === 'ArrowLeft') {
         prevCard();
+      } else if (e.code === 'ArrowUp' || e.code === 'ArrowDown') {
+        e.preventDefault();
+        setShowHint(prev => !prev);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentIndex, filteredList.length]);
+  }, [currentIndex, activeDeck.length]);
 
   const flipCard = () => {
     sounds.playFlip();
@@ -94,11 +125,20 @@ export default function FlashcardGame({
   };
 
   const nextCard = () => {
-    if (currentIndex < filteredList.length - 1) {
+    if (currentIndex < activeDeck.length - 1) {
       sounds.playPop();
       setCurrentIndex(currentIndex + 1);
       setIsFlipped(false);
       setShowHint(false);
+    } else if (activeDeck.length > 0 && currentIndex === activeDeck.length - 1) {
+      // End of session!
+      sounds.playFanfare();
+      setIsSessionComplete(true);
+      confetti({
+        particleCount: 80,
+        spread: 90,
+        origin: { y: 0.6 }
+      });
     }
   };
 
@@ -106,16 +146,6 @@ export default function FlashcardGame({
     if (currentIndex > 0) {
       sounds.playPop();
       setCurrentIndex(currentIndex - 1);
-      setIsFlipped(false);
-      setShowHint(false);
-    }
-  };
-
-  const shuffleCards = () => {
-    sounds.playPop();
-    if (filteredList.length > 0) {
-      const randomIndex = Math.floor(Math.random() * filteredList.length);
-      setCurrentIndex(randomIndex);
       setIsFlipped(false);
       setShowHint(false);
     }
@@ -142,8 +172,13 @@ export default function FlashcardGame({
       colors: ['#34D399', '#60A5FA', '#F472B6']
     });
 
-    if (currentIndex < filteredList.length - 1) {
+    if (currentIndex < activeDeck.length - 1) {
       setTimeout(() => nextCard(), 300);
+    } else {
+      setTimeout(() => {
+        sounds.playFanfare();
+        setIsSessionComplete(true);
+      }, 400);
     }
   };
 
@@ -152,27 +187,32 @@ export default function FlashcardGame({
     sounds.playWrong();
     onMarkReview(currentCard.id);
     onAddXP(5);
-    if (currentIndex < filteredList.length - 1) {
+    if (currentIndex < activeDeck.length - 1) {
       setTimeout(() => nextCard(), 300);
+    } else {
+      setTimeout(() => {
+        sounds.playFanfare();
+        setIsSessionComplete(true);
+      }, 400);
     }
   };
 
   const isFavorite = currentCard ? favoriteIds.has(currentCard.id) : false;
-  const isMastered = currentCard ? masteredIds.has(currentCard.id) : false;
-  const isReview = currentCard ? reviewIds.has(currentCard.id) : false;
 
   return (
     <div className="flashcard-game-container">
       {/* Top Header & Mascot */}
       <div className="game-intro-card">
         <Mascot 
-          mood={isFlipped ? "celebrate" : "happy"} 
+          mood={isSessionComplete ? "celebrate" : isFlipped ? "celebrate" : "happy"} 
           message={
-            filteredList.length === 0 
-              ? "Wah, belum ada kartu untuk filter ini! Coba pilih kategori lain ya."
-              : isFlipped
-                ? "Pelajari contoh kalimatnya & dengarkan cara pengucapannya!"
-                : "Tebak arti kata ini sebelum membalik kartu! Semangat!"
+            isSessionComplete
+              ? "Luar biasa! Kamu menyelesaikan semua 50 kartu di sesi ini! 🎉"
+              : activeDeck.length === 0 
+                ? "Wah, belum ada kartu untuk filter ini! Coba pilih kategori lain ya."
+                : isFlipped
+                  ? "Pelajari contoh kalimatnya & dengarkan cara pengucapannya!"
+                  : "Tebak arti kata ini sebelum membalik kartu! Semangat!"
           }
           size={72}
         />
@@ -238,7 +278,7 @@ export default function FlashcardGame({
           <div className="filter-sub-group">
             <span className="filter-group-title">Level CEFR:</span>
             <div className="filter-pills">
-              {['all', 'A1', 'A2', 'B1', 'B2'].map(lvl => (
+              {['all', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'].map(lvl => (
                 <button 
                   key={lvl}
                   className={`pill-btn small ${levelFilter === lvl ? 'active' : ''}`}
@@ -286,10 +326,41 @@ export default function FlashcardGame({
             </div>
           </div>
         </div>
+
+        {/* 50-Card Batch Toolbar */}
+        <div className="flashcard-session-toolbar">
+          <div className="session-tag-wrap">
+            <span className="session-badge">
+              {isBatchMode ? '🎴 Sesi Belajar: 50 Kartu Acak' : `📚 Menampilkan Semua (${filteredList.length}) Kartu`}
+            </span>
+            <span className="session-sub">
+              {isBatchMode ? 'Diacak otomatis setiap refresh untuk latihan harian' : 'Urutan lengkap sesuai filter'}
+            </span>
+          </div>
+
+          <div className="session-buttons">
+            <button 
+              className="cute-primary-btn small-btn" 
+              onClick={handleNewRandomBatch}
+              title="Acak 50 kosakata baru sekarang"
+            >
+              <Shuffle size={16} />
+              <span>Acak 50 Kartu Baru</span>
+            </button>
+
+            <button 
+              className="pill-btn small" 
+              onClick={() => setIsBatchMode(!isBatchMode)}
+              title="Ganti antara mode 50 kartu acak atau semua kartu"
+            >
+              {isBatchMode ? `Lihat Semua (${filteredList.length})` : 'Mode 50 Kartu Acak'}
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Main Flashcard Arena */}
-      {filteredList.length === 0 ? (
+      {activeDeck.length === 0 ? (
         <div className="empty-state-box">
           <BookMarked size={48} className="empty-icon" />
           <h3>Tidak ada kartu yang cocok</h3>
@@ -305,39 +376,166 @@ export default function FlashcardGame({
             Reset Semua Filter
           </button>
         </div>
+      ) : isSessionComplete ? (
+        /* Sesi Selesai Celebration Card */
+        <div className="session-complete-card">
+          <Trophy size={64} className="trophy-icon" />
+          <h2>Hebat Sekali! Sesi Selesai 🎉</h2>
+          <p>
+            Kamu telah menuntaskan pembelajaran <strong>{activeDeck.length} kartu</strong> pada sesi ini.
+            Penguasaan kosakata kamu semakin meningkat!
+          </p>
+          <div className="complete-action-buttons">
+            <button className="cute-primary-btn" onClick={handleNewRandomBatch}>
+              <Shuffle size={18} />
+              <span>Mulai 50 Kartu Baru 🚀</span>
+            </button>
+            <button 
+              className="cute-secondary-btn" 
+              onClick={() => {
+                setIsSessionComplete(false);
+                setCurrentIndex(0);
+              }}
+            >
+              <RotateCw size={18} />
+              <span>Ulangi Sesi Ini</span>
+            </button>
+          </div>
+        </div>
       ) : (
         <div className="flashcard-scene">
-          {/* Progress Header */}
+          {/* Progress Header with direct navigation arrows */}
           <div className="flashcard-progress-bar-wrap">
             <div className="progress-info">
-              <span className="progress-text">Kartu {currentIndex + 1} dari {filteredList.length}</span>
-              <span className="shortcut-tip">💡 Klik kartu atau tekan Spasi untuk membalik</span>
+              <div className="progress-counter-badge">
+                <span className="progress-text">
+                  Kartu <strong>{currentIndex + 1}</strong> dari <strong>{activeDeck.length}</strong>
+                </span>
+                {isBatchMode && <span className="batch-pill-indicator">Sesi 50 Acak</span>}
+              </div>
+
+              <div className="progress-quick-nav">
+                <button 
+                  className="quick-nav-btn"
+                  onClick={prevCard}
+                  disabled={currentIndex === 0}
+                  title="Kartu Sebelumnya (Panah Kiri)"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button 
+                  className="quick-nav-btn"
+                  onClick={nextCard}
+                  disabled={currentIndex === activeDeck.length - 1}
+                  title="Kartu Berikutnya (Panah Kanan)"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+
+              <span className="shortcut-tip">💡 Klik kartu / Spasi: Balik • ◄ / ►: Pindah kartu</span>
             </div>
+
             <div className="progress-track">
               <div 
                 className="progress-fill" 
-                style={{ width: `${((currentIndex + 1) / filteredList.length) * 100}%` }}
+                style={{ width: `${((currentIndex + 1) / activeDeck.length) * 100}%` }}
               />
             </div>
           </div>
 
-          {/* 3D Card Element */}
-          <div 
-            className={`flashcard-3d ${isFlipped ? 'flipped' : ''}`}
-            onClick={flipCard}
-          >
-            {/* FRONT OF CARD */}
-            <div className="flashcard-face flashcard-front">
-              <div className="card-top-bar">
-                <div className="badge-group">
-                  <span className={`badge-pill badge-${currentCard.type}`}>
-                    {currentCard.type === 'phrasal_verb' ? 'Phrasal Verb' : currentCard.type === 'collocation' ? 'Collocation' : 'Oxford 3000'}
-                  </span>
-                  <span className="badge-pill badge-level">{currentCard.level}</span>
-                  <span className="badge-pill badge-pos">{currentCard.pos}</span>
+          {/* Flashcard Stage with Floating Lateral Navigation Arrows */}
+          <div className="flashcard-stage-container">
+            {/* FLOATING LEFT CHEVRON BUTTON */}
+            <button 
+              className="card-floating-nav-btn prev-floating-btn"
+              onClick={prevCard}
+              disabled={currentIndex === 0}
+              title="Kartu Sebelumnya (Tekan Panah Kiri ◄)"
+              aria-label="Previous card"
+            >
+              <ChevronLeft size={34} />
+              <span className="nav-btn-sub">Prev</span>
+            </button>
+
+            {/* 3D Card Element */}
+            <div 
+              className={`flashcard-3d ${isFlipped ? 'flipped' : ''}`}
+              onClick={flipCard}
+              title="Klik untuk membalik kartu (atau tekan Spasi)"
+            >
+              {/* FRONT OF CARD */}
+              <div className="flashcard-face flashcard-front">
+                <div className="card-top-bar">
+                  <div className="badge-group">
+                    <span className={`badge-pill badge-${currentCard.type}`}>
+                      {currentCard.type === 'phrasal_verb' ? 'Phrasal Verb ⚡' : currentCard.type === 'collocation' ? 'Collocation 🧩' : 'Oxford 📚'}
+                    </span>
+                    <span className="badge-pill badge-level">{currentCard.level}</span>
+                    <span className="badge-pill badge-pos">{currentCard.pos}</span>
+                  </div>
+
+                  <div className="card-top-actions">
+                    <button 
+                      className={`icon-action-btn heart-btn ${isFavorite ? 'favorited' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        sounds.playPop();
+                        onToggleFavorite(currentCard.id);
+                      }}
+                      title="Simpan ke Favorit"
+                    >
+                      <Heart size={20} fill={isFavorite ? '#EF4444' : 'none'} color={isFavorite ? '#EF4444' : 'currentColor'} />
+                    </button>
+                  </div>
                 </div>
 
-                <div className="card-top-actions">
+                <div className="card-center-content">
+                  <h2 className="card-term">{currentCard.term}</h2>
+                  <div className="card-ipa-wrap">
+                    <span className="card-ipa">{currentCard.ipa}</span>
+                    <button 
+                      className={`speak-btn ${speaking ? 'is-speaking' : ''}`}
+                      onClick={(e) => playSpeech(currentCard.term, e)}
+                      title={`Dengarkan pengucapan (${accent === 'en-US' ? 'US' : 'UK'})`}
+                    >
+                      <Volume2 size={22} />
+                    </button>
+                  </div>
+                  <p className="card-category-tag">Topik: {currentCard.category}</p>
+
+                  {showHint ? (
+                    <div className="hint-bubble" onClick={(e) => e.stopPropagation()}>
+                      <span className="hint-label">Petunjuk:</span> {currentCard.hint}
+                    </div>
+                  ) : (
+                    <button 
+                      className="hint-toggle-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        sounds.playPop();
+                        setShowHint(true);
+                      }}
+                    >
+                      <HelpCircle size={15} /> Butuh Petunjuk?
+                    </button>
+                  )}
+                </div>
+
+                <div className="card-bottom-prompt">
+                  <RotateCw size={16} className="rotate-icon" />
+                  <span>Klik kartu untuk membalik & lihat arti serta contoh</span>
+                </div>
+              </div>
+
+              {/* BACK OF CARD */}
+              <div className="flashcard-face flashcard-back">
+                <div className="card-top-bar">
+                  <div className="badge-group">
+                    <span className="badge-pill badge-meaning-title">Arti & Makna (ID)</span>
+                    <span className="badge-pill badge-level">{currentCard.level}</span>
+                    <span className="badge-pill badge-pos">{currentCard.pos}</span>
+                  </div>
                   <button 
                     className={`icon-action-btn heart-btn ${isFavorite ? 'favorited' : ''}`}
                     onClick={(e) => {
@@ -345,103 +543,67 @@ export default function FlashcardGame({
                       sounds.playPop();
                       onToggleFavorite(currentCard.id);
                     }}
-                    title="Simpan ke Favorit"
                   >
                     <Heart size={20} fill={isFavorite ? '#EF4444' : 'none'} color={isFavorite ? '#EF4444' : 'currentColor'} />
                   </button>
                 </div>
-              </div>
 
-              <div className="card-center-content">
-                <h2 className="card-term">{currentCard.term}</h2>
-                <div className="card-ipa-wrap">
-                  <span className="card-ipa">{currentCard.ipa}</span>
-                  <button 
-                    className={`speak-btn ${speaking ? 'is-speaking' : ''}`}
-                    onClick={(e) => playSpeech(currentCard.term, e)}
-                    title={`Dengarkan pengucapan (${accent === 'en-US' ? 'US' : 'UK'})`}
-                  >
-                    <Volume2 size={22} />
-                  </button>
-                </div>
-                <p className="card-category-tag">Topik: {currentCard.category}</p>
-
-                {showHint ? (
-                  <div className="hint-bubble" onClick={(e) => e.stopPropagation()}>
-                    <span className="hint-label">Petunjuk:</span> {currentCard.hint}
+                <div className="card-back-main">
+                  <h3 className="card-indonesian-meaning">{currentCard.meaningId}</h3>
+                  
+                  <div className="example-section" onClick={(e) => e.stopPropagation()}>
+                    <div className="example-header">
+                      <span className="example-badge">Contoh Kalimat:</span>
+                      <button 
+                        className="speak-mini-btn"
+                        onClick={(e) => playSpeech(currentCard.exampleEn, e)}
+                        title="Dengarkan seluruh kalimat"
+                      >
+                        <Volume2 size={16} /> Dengarkan
+                      </button>
+                    </div>
+                    <p className="example-en">"{currentCard.exampleEn}"</p>
+                    <p className="example-id">Artinya: "{currentCard.exampleId}"</p>
                   </div>
-                ) : (
-                  <button 
-                    className="hint-toggle-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      sounds.playPop();
-                      setShowHint(true);
-                    }}
-                  >
-                    <HelpCircle size={15} /> Butuh Petunjuk?
-                  </button>
-                )}
-              </div>
 
-              <div className="card-bottom-prompt">
-                <RotateCw size={16} className="rotate-icon" />
-                <span>Klik kartu untuk membalik & lihat arti serta contoh</span>
+                  <div className="note-box" onClick={(e) => e.stopPropagation()}>
+                    <span className="note-title">💡 Tips Pemakaian:</span>
+                    <span className="note-text">{currentCard.hint}</span>
+                  </div>
+                </div>
+
+                <div className="card-bottom-prompt">
+                  <RotateCw size={16} className="rotate-icon" />
+                  <span>Klik untuk kembali ke depan</span>
+                </div>
               </div>
             </div>
 
-            {/* BACK OF CARD */}
-            <div className="flashcard-face flashcard-back">
-              <div className="card-top-bar">
-                <div className="badge-group">
-                  <span className="badge-pill badge-meaning-title">Arti & Makna (ID)</span>
-                  <span className="badge-pill badge-level">{currentCard.level}</span>
-                </div>
-                <button 
-                  className={`icon-action-btn heart-btn ${isFavorite ? 'favorited' : ''}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    sounds.playPop();
-                    onToggleFavorite(currentCard.id);
-                  }}
-                >
-                  <Heart size={20} fill={isFavorite ? '#EF4444' : 'none'} color={isFavorite ? '#EF4444' : 'currentColor'} />
-                </button>
-              </div>
-
-              <div className="card-back-main">
-                <h3 className="card-indonesian-meaning">{currentCard.meaningId}</h3>
-                
-                <div className="example-section" onClick={(e) => e.stopPropagation()}>
-                  <div className="example-header">
-                    <span className="example-badge">Contoh Kalimat:</span>
-                    <button 
-                      className="speak-mini-btn"
-                      onClick={(e) => playSpeech(currentCard.exampleEn, e)}
-                      title="Dengarkan seluruh kalimat"
-                    >
-                      <Volume2 size={16} /> Dengarkan
-                    </button>
-                  </div>
-                  <p className="example-en">"{currentCard.exampleEn}"</p>
-                  <p className="example-id">Artinya: "{currentCard.exampleId}"</p>
-                </div>
-
-                <div className="note-box" onClick={(e) => e.stopPropagation()}>
-                  <span className="note-title">💡 Tips Pemakaian:</span>
-                  <span className="note-text">{currentCard.hint}</span>
-                </div>
-              </div>
-
-              <div className="card-bottom-prompt">
-                <RotateCw size={16} className="rotate-icon" />
-                <span>Klik untuk kembali ke depan</span>
-              </div>
-            </div>
+            {/* FLOATING RIGHT CHEVRON BUTTON */}
+            <button 
+              className="card-floating-nav-btn next-floating-btn"
+              onClick={nextCard}
+              disabled={currentIndex === activeDeck.length - 1}
+              title="Kartu Berikutnya (Tekan Panah Kanan ►)"
+              aria-label="Next card"
+            >
+              <ChevronRight size={34} />
+              <span className="nav-btn-sub">Next</span>
+            </button>
           </div>
 
-          {/* Action Buttons Below Card */}
+          {/* Action Navigation Controls Below Card */}
           <div className="flashcard-controls">
+            <button 
+              className="nav-control-btn prev-btn" 
+              onClick={prevCard}
+              disabled={currentIndex === 0}
+              title="Kembali ke kartu sebelumnya"
+            >
+              <ChevronLeft size={20} />
+              <span>Sebelumnya</span>
+            </button>
+
             <button 
               className="action-btn review-btn"
               onClick={handleReview}
@@ -452,34 +614,6 @@ export default function FlashcardGame({
               <span className="xp-tag">+5 XP</span>
             </button>
 
-            <div className="nav-arrows-group">
-              <button 
-                className="arrow-nav-btn" 
-                onClick={prevCard} 
-                disabled={currentIndex === 0}
-                title="Kartu Sebelumnya (Panah Kiri)"
-              >
-                <ChevronLeft size={22} />
-              </button>
-
-              <button 
-                className="arrow-nav-btn shuffle-btn" 
-                onClick={shuffleCards}
-                title="Acak Urutan Kartu"
-              >
-                <Shuffle size={20} />
-              </button>
-
-              <button 
-                className="arrow-nav-btn" 
-                onClick={nextCard} 
-                disabled={currentIndex === filteredList.length - 1}
-                title="Kartu Berikutnya (Panah Kanan)"
-              >
-                <ChevronRight size={22} />
-              </button>
-            </div>
-
             <button 
               className="action-btn master-btn"
               onClick={handleMastered}
@@ -489,6 +623,25 @@ export default function FlashcardGame({
               <span>Sudah Paham!</span>
               <span className="xp-tag">+15 XP</span>
             </button>
+
+            <button 
+              className="nav-control-btn next-btn" 
+              onClick={nextCard}
+              disabled={currentIndex === activeDeck.length - 1}
+              title="Lanjut ke kartu berikutnya"
+            >
+              <span>Berikutnya</span>
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
+          {/* Keyboard & Swipe Navigation Guide */}
+          <div className="flashcard-nav-tip-footer">
+            <span>⌨️ Pintasan Keyboard:</span>
+            <span className="key-cap">◄ Panah Kiri</span> Sebelumnya
+            <span className="key-cap">Spasi</span> Balik Kartu
+            <span className="key-cap">Panah Kanan ►</span> Berikutnya
+            <span className="key-cap">▲ / ▼</span> Petunjuk
           </div>
         </div>
       )}
