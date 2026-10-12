@@ -1239,7 +1239,8 @@ for line in pv_lines:
         defn_en = parts[1].strip()
         
         # Clean up non-printable or corrupted characters
-        term_raw = term_raw.replace('\ufffd', '...').replace('', '...').strip()
+        term_raw = re.sub(r'[\ufffd\x00-\x1f]+', '', term_raw).strip()
+        term_raw = re.sub(r'\s+', ' ', term_raw).strip()
         
         term_clean = term_raw.lower()
         base_term = term_clean.replace(' sth', '').replace(' sb', '').replace(' (sb)', '').replace(' (sth)', '').strip()

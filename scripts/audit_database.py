@@ -20,8 +20,12 @@ def check_file(path):
         (r'\(abolish', "English parenthetical"),
         (r'\(tolerate', "English parenthetical"),
         (r'\(defeat', "English parenthetical"),
+        (r'\.\.\.[a-z]', "dots between characters in meaning"),
     ]
     for mid, term, meaning in matches:
+        if re.search(r'\.\.\.[a-z]', term):
+            suspicious.append((mid, term, meaning, "dots between characters in term"))
+            continue
         for p, desc in bad_patterns:
             if re.search(p, meaning, re.I):
                 suspicious.append((mid, term, meaning, desc))
