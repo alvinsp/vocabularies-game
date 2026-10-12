@@ -10,6 +10,8 @@ export const allVocabulary = [
   ...oxfordVocab
 ];
 
+export const allVocabularies = allVocabulary;
+
 export const getStats = () => {
   return {
     total: allVocabulary.length,
@@ -29,6 +31,21 @@ export const getRandomBatch = (arr, count = 50) => {
   if (!arr || arr.length === 0) return [];
   const shuffled = [...arr].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, Math.min(count, shuffled.length));
+};
+
+// Helper to filter by type
+export const getVocabulariesByType = (type) => {
+  if (type === 'all') return allVocabulary;
+  if (type === 'oxford_3000' || type === 'oxford') return oxfordVocab;
+  if (type === 'phrasal_verb') return phrasalVerbs;
+  if (type === 'collocation') return collocations;
+  return allVocabulary;
+};
+
+// Helper to get random sample of words (default 50)
+export const getRandomVocabularies = (count = 50, filterType = 'all') => {
+  const pool = getVocabulariesByType(filterType);
+  return getRandomBatch(pool, count);
 };
 
 export const filterVocabulary = ({

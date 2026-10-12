@@ -4,12 +4,12 @@ export const collocations = [
     "term": "pay attention",
     "ipa": "/peɪ əˈtenʃn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "A2",
     "meaningId": "memperhatikan / menyimak dengan saksama",
     "exampleEn": "Pay attention to the teacher's explanation.",
     "exampleId": "Perhatikan baik-baik penjelasan dari gurumu.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • A2",
     "category": "Focus & Learning"
   },
   {
@@ -17,12 +17,12 @@ export const collocations = [
     "term": "make an effort",
     "ipa": "/meɪk ən ˈefət/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B1",
     "meaningId": "berusaha keras / mengerahkan daya upaya",
     "exampleEn": "You must make an effort to improve fluency.",
     "exampleId": "Kamu harus berusaha keras untuk meningkatkan kelancaran.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B1",
     "category": "Effort"
   },
   {
@@ -30,12 +30,12 @@ export const collocations = [
     "term": "do business",
     "ipa": "/duː ˈbɪznəs/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B1",
     "meaningId": "menjalin urusan bisnis / berniaga",
     "exampleEn": "We look forward to doing business together.",
     "exampleId": "Kami menantikan untuk berbisnis bersama.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B1",
     "category": "Commerce"
   },
   {
@@ -43,12 +43,12 @@ export const collocations = [
     "term": "take advantage of",
     "ipa": "/teɪk ədˈvɑːntɪdʒ əv/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B1",
     "meaningId": "memanfaatkan peluang dengan bijak",
     "exampleEn": "Take advantage of these free practice materials.",
     "exampleId": "Manfaatkan bahan latihan gratis ini dengan bijak.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B1",
     "category": "Opportunities"
   },
   {
@@ -56,12 +56,12 @@ export const collocations = [
     "term": "bear in mind",
     "ipa": "/beə ɪn maɪnd/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "B2",
     "meaningId": "mengingat dan mempertimbangkan hal penting",
     "exampleEn": "Bear in mind that flight seats are limited.",
     "exampleId": "Ingat dan pertimbangkan bahwa kursi penerbangan terbatas.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • B2",
     "category": "Mindset"
   },
   {
@@ -69,12 +69,12 @@ export const collocations = [
     "term": "keep in touch",
     "ipa": "/kiːp ɪn tʌtʃ/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "B1",
     "meaningId": "tetap saling berkabar dan menjaga kontak",
     "exampleEn": "Let's keep in touch through video calls.",
     "exampleId": "Mari tetap saling berkabar lewat panggilan video.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • B1",
     "category": "Friendship"
   },
   {
@@ -82,12 +82,12 @@ export const collocations = [
     "term": "raise awareness",
     "ipa": "/reɪz əˈweənəs/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "meningkatkan kesadaran masyarakat",
     "exampleEn": "The festival raised awareness about recycling.",
     "exampleId": "Festival ini meningkatkan kesadaran tentang daur ulang.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Advocacy"
   },
   {
@@ -95,12 +95,12 @@ export const collocations = [
     "term": "pose a threat",
     "ipa": "/pəʊz ə θret/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "menimbulkan atau menjadi ancaman bahaya",
     "exampleEn": "Invasive species pose a threat to native birds.",
     "exampleId": "Spesies invasif menimbulkan ancaman bagi burung lokal.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Risk"
   },
   {
@@ -108,12 +108,12 @@ export const collocations = [
     "term": "break a habit",
     "ipa": "/breɪk ə ˈhæbɪt/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B1",
     "meaningId": "menghentikan kebiasaan buruk",
     "exampleEn": "It requires persistence to break an old habit.",
     "exampleId": "Dibutuhkan kegigihan untuk menghentikan kebiasaan lama.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B1",
     "category": "Habits"
   },
   {
@@ -121,12 +121,12 @@ export const collocations = [
     "term": "cast doubt on",
     "ipa": "/kɑːst daʊt ɒn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "menimbulkan keraguan terhadap kebenaran",
     "exampleEn": "New findings cast doubt on previous assumptions.",
     "exampleId": "Temuan baru menimbulkan keraguan atas asumsi sebelumnya.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Skepticism"
   },
   {
@@ -134,12 +134,12 @@ export const collocations = [
     "term": "meet expectations",
     "ipa": "/miːt ˌekspekˈteɪʃnz/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "memenuhi ekspektasi atau harapan",
     "exampleEn": "The concert exceeded our wild expectations.",
     "exampleId": "Konser tersebut bahkan melampaui seluruh ekspektasi kami.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Performance"
   },
   {
@@ -147,12 +147,12 @@ export const collocations = [
     "term": "draw a conclusion",
     "ipa": "/drɔː ə kənˈkluːʒn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "menarik kesimpulan berdasarkan bukti",
     "exampleEn": "Do not draw a conclusion prematurely.",
     "exampleId": "Jangan menarik kesimpulan secara tergesa-gesa.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Logic"
   },
   {
@@ -160,12 +160,12 @@ export const collocations = [
     "term": "reach a consensus",
     "ipa": "/riːtʃ ə kənˈsensəs/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "mencapai mufakat atau kesepakatan bersama",
     "exampleEn": "The board reached a consensus on future goals.",
     "exampleId": "Dewan direksi mencapai mufakat terkait sasaran masa depan.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Consensus"
   },
   {
@@ -173,12 +173,12 @@ export const collocations = [
     "term": "catch someone's eye",
     "ipa": "/kætʃ wʌnz aɪ/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B1",
     "meaningId": "menarik perhatian pandangan seseorang",
     "exampleEn": "A bright turquoise dress caught her eye.",
     "exampleId": "Gaun pirus cerah menarik perhatian pandangannya.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B1",
     "category": "Visual"
   },
   {
@@ -186,12 +186,12 @@ export const collocations = [
     "term": "commit a crime",
     "ipa": "/kəˈmɪt ə kraɪm/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B1",
     "meaningId": "melakukan tindak pidana kejahatan",
     "exampleEn": "He was convicted for committing the crime.",
     "exampleId": "Dia divonis bersalah karena melakukan kejahatan tersebut.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B1",
     "category": "Law"
   },
   {
@@ -199,12 +199,12 @@ export const collocations = [
     "term": "take into account",
     "ipa": "/teɪk ˈɪntə əˈkaʊnt/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "B2",
     "meaningId": "mempertimbangkan faktor dalam analisis",
     "exampleEn": "We must take all travel expenses into account.",
     "exampleId": "Kita harus memperhitungkan seluruh biaya perjalanan.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • B2",
     "category": "Planning"
   },
   {
@@ -212,12 +212,12 @@ export const collocations = [
     "term": "run a risk",
     "ipa": "/rʌn ə rɪsk/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "menanggung atau mengambil risiko",
     "exampleEn": "Unlicensed drivers run a risk of heavy fines.",
     "exampleId": "Pengemudi tanpa SIM menanggung risiko denda berat.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Caution"
   },
   {
@@ -225,12 +225,12 @@ export const collocations = [
     "term": "set an example",
     "ipa": "/set ən ɪɡˈzɑːmpl/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B1",
     "meaningId": "memberi teladan yang baik bagi orang lain",
     "exampleEn": "Older siblings should set an example for toddlers.",
     "exampleId": "Kakak sulung hendaknya memberi teladan bagi adik-adiknya.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B1",
     "category": "Leadership"
   },
   {
@@ -238,12 +238,12 @@ export const collocations = [
     "term": "voice concern",
     "ipa": "/vɔɪs kənˈsɜːn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "menyuarakan kekhawatiran secara terbuka",
     "exampleEn": "Residents voiced concern about water shortages.",
     "exampleId": "Warga menyuarakan kekhawatiran tentang krisis air bersih.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Society"
   },
   {
@@ -251,12 +251,12 @@ export const collocations = [
     "term": "strike a balance",
     "ipa": "/straɪk ə ˈbæləns/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "menjaga keseimbangan yang tepat",
     "exampleEn": "Strike a balance between leisure and hard study.",
     "exampleId": "Jagalah keseimbangan antara rekreasi dan belajar giat.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Harmony"
   },
   {
@@ -264,12 +264,12 @@ export const collocations = [
     "term": "break the ice",
     "ipa": "/breɪk ði aɪs/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B1",
     "meaningId": "mencairkan suasana kaku saat pertama jumpa",
     "exampleEn": "A warm joke quickly broke the ice.",
     "exampleId": "Lelucon hangat mencairkan suasana dengan cepat.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B1",
     "category": "Social"
   },
   {
@@ -277,12 +277,12 @@ export const collocations = [
     "term": "take a toll on",
     "ipa": "/teɪk ə təʊl/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "memberikan dampak buruk bagi kesehatan",
     "exampleEn": "Working overnight shifts takes a toll on sleep.",
     "exampleId": "Bekerja lembur malam berdampak buruk pada pola tidur.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Health"
   },
   {
@@ -290,12 +290,12 @@ export const collocations = [
     "term": "make a breakthrough",
     "ipa": "/meɪk ə ˈbreɪkθruː/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "mencapai kemajuan penting / terobosan",
     "exampleEn": "Engineers made a breakthrough in battery storage.",
     "exampleId": "Para insinyur mencapai terobosan pada penyimpanan baterai.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Innovation"
   },
   {
@@ -303,12 +303,12 @@ export const collocations = [
     "term": "jump to conclusions",
     "ipa": "/dʒʌmp tə kənˈkluːʒnz/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "B2",
     "meaningId": "terburu-buru menyimpulkan tanpa bukti",
     "exampleEn": "Gather verified facts before jumping to conclusions.",
     "exampleId": "Kumpulkan fakta sahih sebelum terburu-buru menyimpulkan.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • B2",
     "category": "Judgment"
   },
   {
@@ -316,12 +316,12 @@ export const collocations = [
     "term": "shed light on",
     "ipa": "/ʃed laɪt ɒn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "B2",
     "meaningId": "memberikan kejelasan atau titik terang",
     "exampleEn": "DNA testing shed light on unresolved cold cases.",
     "exampleId": "Tes DNA memberikan titik terang pada kasus lama yang buntu.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • B2",
     "category": "Clarity"
   },
   {
@@ -329,12 +329,12 @@ export const collocations = [
     "term": "strike a deal",
     "ipa": "/straɪk ə diːl/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "C1",
     "meaningId": "mencapai kesepakatan transaksi yang saling untung",
     "exampleEn": "The two tech firms struck a multi-million deal.",
     "exampleId": "Kedua perusahaan teknologi menyepakati transaksi jutaan dolar.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • C1",
     "category": "Business (C1)"
   },
   {
@@ -342,12 +342,12 @@ export const collocations = [
     "term": "wreak havoc",
     "ipa": "/riːk ˈhævək/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "C1",
     "meaningId": "menimbulkan kekacauan dan kehancuran parah",
     "exampleEn": "The cyclone wreaked havoc across island villages.",
     "exampleId": "Angin siklon itu menimbulkan kehancuran parah di desa-desa pulau.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • C1",
     "category": "Destruction (C1)"
   },
   {
@@ -355,12 +355,12 @@ export const collocations = [
     "term": "exercise caution",
     "ipa": "/ˈeksəsaɪz ˈkɔːʃn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "C1",
     "meaningId": "menerapkan kehati-hatian tingkat tinggi",
     "exampleEn": "Investors must exercise caution in volatile markets.",
     "exampleId": "Investor wajib berhati-hati di pasar yang tidak menentu.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • C1",
     "category": "Prudence (C1)"
   },
   {
@@ -368,12 +368,12 @@ export const collocations = [
     "term": "muster courage",
     "ipa": "/ˈmʌstə ˈkʌrɪdʒ/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "C1",
     "meaningId": "mengumpulkan segenap keberanian batin",
     "exampleEn": "She mustered the courage to resign and start a firm.",
     "exampleId": "Dia mengumpulkan keberanian untuk mundur dan merintis usaha.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • C1",
     "category": "Bravery (C1)"
   },
   {
@@ -381,12 +381,12 @@ export const collocations = [
     "term": "harbor doubt",
     "ipa": "/ˈhɑːbə daʊt/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "C1",
     "meaningId": "menyimpan keraguan dalam hati",
     "exampleEn": "Critics harbor doubts about the treaty's efficacy.",
     "exampleId": "Kritikus menyimpan keraguan atas keefektifan pakta itu.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • C1",
     "category": "Skepticism (C1)"
   },
   {
@@ -394,12 +394,12 @@ export const collocations = [
     "term": "yield results",
     "ipa": "/jiːld rɪˈzʌlts/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+noun",
     "level": "C1",
     "meaningId": "membuahkan hasil nyata dan memuaskan",
     "exampleEn": "Continuous deliberate practice yields results.",
     "exampleId": "Latihan terarah yang konsisten akan membuahkan hasil nyata.",
-    "hint": "Collocation pattern: verb+noun",
+    "hint": "Natural Collocation Pattern (verb+noun) • C1",
     "category": "Achievement (C1)"
   },
   {
@@ -407,12 +407,12 @@ export const collocations = [
     "term": "heavy rain",
     "ipa": "/ˈhevi reɪn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "A2",
     "meaningId": "hujan deras / lebat",
     "exampleEn": "Heavy rain drenched the botanical garden.",
     "exampleId": "Hujan deras mengguyur taman botani itu.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • A2",
     "category": "Weather"
   },
   {
@@ -420,12 +420,12 @@ export const collocations = [
     "term": "golden opportunity",
     "ipa": "/ˈɡəʊldən ˌɒpəˈtjuːnəti/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "kesempatan emas yang sangat berharga",
     "exampleEn": "Studying in Oxford is a golden opportunity.",
     "exampleId": "Belajar di Oxford adalah sebuah kesempatan emas.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Career"
   },
   {
@@ -433,12 +433,12 @@ export const collocations = [
     "term": "high priority",
     "ipa": "/haɪ praɪˈɒrəti/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B1",
     "meaningId": "prioritas tinggi yang diutamakan",
     "exampleEn": "Clean drinking water is an urgent high priority.",
     "exampleId": "Air minum bersih adalah prioritas tinggi yang mendesak.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B1",
     "category": "Urgency"
   },
   {
@@ -446,12 +446,12 @@ export const collocations = [
     "term": "fierce competition",
     "ipa": "/fɪəs ˌkɒmpəˈtɪʃn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "persaingan yang sangat sengit",
     "exampleEn": "Automakers face fierce competition in electric cars.",
     "exampleId": "Pabrikan mobil menghadapi persaingan sengit pada mobil listrik.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Market"
   },
   {
@@ -459,12 +459,12 @@ export const collocations = [
     "term": "profound effect",
     "ipa": "/prəˈfaʊnd ɪˈfekt/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "dampak yang sangat mendalam dan luas",
     "exampleEn": "Great teachers leave a profound effect on pupils.",
     "exampleId": "Guru hebat meninggalkan dampak mendalam pada murid-muridnya.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Impact"
   },
   {
@@ -472,12 +472,12 @@ export const collocations = [
     "term": "wide variety",
     "ipa": "/waɪd vəˈraɪəti/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B1",
     "meaningId": "aneka ragam pilihan yang berlimpah",
     "exampleEn": "The market sells a wide variety of fresh herbs.",
     "exampleId": "Pasar ini menjual aneka ragam rempah-rempah segar.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B1",
     "category": "Variety"
   },
   {
@@ -485,12 +485,12 @@ export const collocations = [
     "term": "valid point",
     "ipa": "/ˈvælɪd pɔɪnt/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "poin argumen yang logis dan masuk akal",
     "exampleEn": "You made a very valid point regarding costs.",
     "exampleId": "Kamu menyampaikan poin yang sangat masuk akal soal biaya.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Debate"
   },
   {
@@ -498,12 +498,12 @@ export const collocations = [
     "term": "severe damage",
     "ipa": "/sɪˈvɪə ˈdæmɪdʒ/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "kerusakan yang amat parah dan merugikan",
     "exampleEn": "Hailstorms inflicted severe damage on orchard crops.",
     "exampleId": "Hujan es menimbulkan kerusakan parah pada tanaman kebun.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Loss"
   },
   {
@@ -511,12 +511,12 @@ export const collocations = [
     "term": "prime example",
     "ipa": "/praɪm ɪɡˈzɑːmpl/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "contoh utama yang paling sempurna",
     "exampleEn": "Her integrity is a prime example for the staff.",
     "exampleId": "Integritasnya adalah contoh utama yang patut ditiru staf.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Model"
   },
   {
@@ -524,12 +524,12 @@ export const collocations = [
     "term": "deep regret",
     "ipa": "/diːp rɪˈɡret/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "penyesalan yang amat mendalam",
     "exampleEn": "He expressed deep regret over his impulsive choice.",
     "exampleId": "Dia menyampaikan penyesalan mendalam atas pilihannya yang impulsif.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Remorse"
   },
   {
@@ -537,12 +537,12 @@ export const collocations = [
     "term": "slight chance",
     "ipa": "/slaɪt tʃɑːns/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B1",
     "meaningId": "peluang kecil / kemungkinan tipis",
     "exampleEn": "There is a slight chance of light afternoon mist.",
     "exampleId": "Ada peluang kecil kabut tipis di sore hari.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B1",
     "category": "Odds"
   },
   {
@@ -550,12 +550,12 @@ export const collocations = [
     "term": "crucial role",
     "ipa": "/ˈkruːʃl rəʊl/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "peranan penting penentu kesuksesan",
     "exampleEn": "Volunteers play a crucial role in disaster relief.",
     "exampleId": "Relawan memainkan peran penting dalam penanggulangan bencana.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Importance"
   },
   {
@@ -563,12 +563,12 @@ export const collocations = [
     "term": "bitter disappointment",
     "ipa": "/ˈbɪtə ˌdɪsəˈpɔɪntmənt/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "kekecewaan yang amat pahit dan menyakitkan",
     "exampleEn": "Losing the semifinal was a bitter disappointment.",
     "exampleId": "Gagal di semifinal merupakan kekecewaan yang sangat pahit.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Sadness"
   },
   {
@@ -576,12 +576,12 @@ export const collocations = [
     "term": "sound advice",
     "ipa": "/saʊnd ədˈvaɪs/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "nasihat bijak dan dapat diandalkan",
     "exampleEn": "Listen closely to your grandfather's sound advice.",
     "exampleId": "Dengarkan baik-baik nasihat bijak dari kakekmu.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Wisdom"
   },
   {
@@ -589,12 +589,12 @@ export const collocations = [
     "term": "steep learning curve",
     "ipa": "/stiːp ˈlɜːnɪŋ kɜːv/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "proses belajar yang menantang di awal",
     "exampleEn": "Coding in Rust has a steep learning curve.",
     "exampleId": "Memprogram dengan Rust memiliki tantangan belajar yang tinggi di awal.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Education"
   },
   {
@@ -602,12 +602,12 @@ export const collocations = [
     "term": "unanimous decision",
     "ipa": "/juˈnænɪməs dɪˈsɪʒn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "B2",
     "meaningId": "keputusan bulat yang disepakati bersama",
     "exampleEn": "The jury reached a unanimous decision today.",
     "exampleId": "Dewan juri mencapai keputusan bulat hari ini.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • B2",
     "category": "Consensus"
   },
   {
@@ -615,12 +615,12 @@ export const collocations = [
     "term": "pressing issue",
     "ipa": "/ˈpresɪŋ ˈɪʃuː/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "C1",
     "meaningId": "isu mendesak yang butuh solusi segera",
     "exampleEn": "Urban affordable housing is a pressing issue.",
     "exampleId": "Perumahan terjangkau di perkotaan adalah isu yang sangat mendesak.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • C1",
     "category": "Politics (C1)"
   },
   {
@@ -628,12 +628,12 @@ export const collocations = [
     "term": "daunting task",
     "ipa": "/ˈdɔːntɪŋ tɑːsk/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "C1",
     "meaningId": "tugas besar yang membuat gentar",
     "exampleEn": "Translating the ancient encyclopedia is a daunting task.",
     "exampleId": "Menerjemahkan ensiklopedia kuno itu tugas yang membuat gentar.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • C1",
     "category": "Challenges (C1)"
   },
   {
@@ -641,12 +641,12 @@ export const collocations = [
     "term": "stark contrast",
     "ipa": "/stɑːk ˈkɒntrɑːst/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "C1",
     "meaningId": "perbedaan kontras yang sangat mencolok",
     "exampleEn": "Her calm mood stood in stark contrast to the panic.",
     "exampleId": "Sikap tenangnya sangat kontras mencolok dengan kepanikan di sekitar.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • C1",
     "category": "Contrast (C1)"
   },
   {
@@ -654,12 +654,12 @@ export const collocations = [
     "term": "unprecedented crisis",
     "ipa": "/ʌnˈpresɪdentɪd ˈkraɪsɪs/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "C1",
     "meaningId": "krisis luar biasa yang belum pernah terjadi",
     "exampleEn": "The famine triggered an unprecedented crisis.",
     "exampleId": "Bencana kelaparan itu memicu krisis yang belum pernah terjadi.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • C1",
     "category": "History (C1)"
   },
   {
@@ -667,12 +667,12 @@ export const collocations = [
     "term": "lingering doubt",
     "ipa": "/ˈlɪŋɡərɪŋ daʊt/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adj+noun",
     "level": "C1",
     "meaningId": "keraguan yang terus membekas dalam benak",
     "exampleEn": "He could not shake a lingering doubt in his heart.",
     "exampleId": "Dia tidak bisa menepis keraguan yang terus membekas di hatinya.",
-    "hint": "Collocation pattern: adj+noun",
+    "hint": "Natural Collocation Pattern (adj+noun) • C1",
     "category": "Mindset (C1)"
   },
   {
@@ -680,12 +680,12 @@ export const collocations = [
     "term": "deeply concerned",
     "ipa": "/ˈdiːpli kənˈsɜːnd/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "B2",
     "meaningId": "sangat khawatir dan menaruh perhatian",
     "exampleEn": "Pediatricians are deeply concerned about screen time.",
     "exampleId": "Dokter anak sangat khawatir terhadap waktu menatap layar gawai.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • B2",
     "category": "Worry"
   },
   {
@@ -693,12 +693,12 @@ export const collocations = [
     "term": "highly recommended",
     "ipa": "/ˈhaɪli ˌrekəˈmendɪd/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "B1",
     "meaningId": "sangat dianjurkan / direkomendasikan",
     "exampleEn": "The grammar book is highly recommended for IELTS.",
     "exampleId": "Buku tata bahasa ini sangat direkomendasikan untuk IELTS.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • B1",
     "category": "Praise"
   },
   {
@@ -706,12 +706,12 @@ export const collocations = [
     "term": "bitterly disappointed",
     "ipa": "/ˈbɪtəli ˌdɪsəˈpɔɪntɪd/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "B2",
     "meaningId": "amat sangat kecewa dan terpukul",
     "exampleEn": "She was bitterly disappointed by the cancellation.",
     "exampleId": "Dia amat sangat kecewa atas pembatalan acara tersebut.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • B2",
     "category": "Emotions"
   },
   {
@@ -719,12 +719,12 @@ export const collocations = [
     "term": "strictly forbidden",
     "ipa": "/ˈstrɪktli fəˈbɪdn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "B2",
     "meaningId": "dilarang keras tanpa pengecualian",
     "exampleEn": "Smoking is strictly forbidden on petrol forecourts.",
     "exampleId": "Merokok dilarang keras di area pom bensin.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • B2",
     "category": "Rules"
   },
   {
@@ -732,12 +732,12 @@ export const collocations = [
     "term": "painfully obvious",
     "ipa": "/ˈpeɪnfəli ˈɒbviəs/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "B2",
     "meaningId": "sangat kentara dan jelas sekali",
     "exampleEn": "It was painfully obvious that he forgot the slides.",
     "exampleId": "Sangat kentara jelas bahwa dia lupa membawa slide presentasi.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • B2",
     "category": "Clarity"
   },
   {
@@ -745,12 +745,12 @@ export const collocations = [
     "term": "utterly ridiculous",
     "ipa": "/ˈʌtəli rɪˈdɪkjələs/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "B2",
     "meaningId": "sama sekali konyol dan tak masuk akal",
     "exampleEn": "Paying double for the same service is utterly ridiculous.",
     "exampleId": "Membayar dua kali lipat untuk layanan serupa sama sekali tak masuk akal.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • B2",
     "category": "Absurdity"
   },
   {
@@ -758,12 +758,12 @@ export const collocations = [
     "term": "fully aware",
     "ipa": "/ˈfʊli əˈweə(r)/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "B2",
     "meaningId": "sadar sepenuhnya atas situasi yang dihadapi",
     "exampleEn": "Pilots are fully aware of turbulence protocols.",
     "exampleId": "Pilot sadar sepenuhnya atas protokol saat turbulensi.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • B2",
     "category": "Consciousness"
   },
   {
@@ -771,12 +771,12 @@ export const collocations = [
     "term": "sorely tempted",
     "ipa": "/ˈsɔːli ˈtemptɪd/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "B2",
     "meaningId": "sangat tergoda untuk melakukan sesuatu",
     "exampleEn": "I was sorely tempted to eat the last cupcake.",
     "exampleId": "Aku sangat tergoda untuk memakan kue mangkuk terakhir itu.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • B2",
     "category": "Temptation"
   },
   {
@@ -784,12 +784,12 @@ export const collocations = [
     "term": "heavily dependent",
     "ipa": "/ˈhevɪli dɪˈpendənt/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "B2",
     "meaningId": "sangat bergantung sepenuhnya pada pihak lain",
     "exampleEn": "The colony was heavily dependent on imported grain.",
     "exampleId": "Koloni itu sangat bergantung pada impor biji-bijian.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • B2",
     "category": "Reliance"
   },
   {
@@ -797,12 +797,12 @@ export const collocations = [
     "term": "widely acclaimed",
     "ipa": "/ˈwaɪdli əˈkleɪmd/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "C1",
     "meaningId": "diakui secara luas dan menuai pujian",
     "exampleEn": "The director's latest film was widely acclaimed.",
     "exampleId": "Film terbaru sang sutradara menuai pujian luas di seluruh dunia.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • C1",
     "category": "Arts (C1)"
   },
   {
@@ -810,12 +810,12 @@ export const collocations = [
     "term": "blatantly obvious",
     "ipa": "/ˈbleɪtəntli ˈɒbviəs/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "C1",
     "meaningId": "terang-terangan terlihat jelas tanpa keraguan",
     "exampleEn": "The accounting discrepancy was blatantly obvious.",
     "exampleId": "Ketidakcocokan laporan akuntansi itu terang-terangan terlihat jelas.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • C1",
     "category": "Clarity (C1)"
   },
   {
@@ -823,12 +823,12 @@ export const collocations = [
     "term": "strictly confidential",
     "ipa": "/ˈstrɪktli ˌkɒnfɪˈdenʃl/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "C1",
     "meaningId": "sangat rahasia dan tidak boleh dibocorkan",
     "exampleEn": "Patient medical data is strictly confidential.",
     "exampleId": "Data medis pasien bersifat sangat rahasia.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • C1",
     "category": "Privacy (C1)"
   },
   {
@@ -836,12 +836,12 @@ export const collocations = [
     "term": "fiercely competitive",
     "ipa": "/ˈfɪəsli kəmˈpetətɪv/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "C1",
     "meaningId": "sangat kompetitif dan bersaing keras",
     "exampleEn": "Fintech careers are fiercely competitive.",
     "exampleId": "Karier di bidang teknologi finansial sangat kompetitif.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • C1",
     "category": "Careers (C1)"
   },
   {
@@ -849,12 +849,12 @@ export const collocations = [
     "term": "painstakingly slow",
     "ipa": "/ˈpeɪnzteɪkɪŋli sləʊ/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "adv+adj",
     "level": "C1",
     "meaningId": "sangat lambat dan menuntut ketelitian tinggi",
     "exampleEn": "Restoring ancient oil murals is painstakingly slow.",
     "exampleId": "Merestorasi lukisan mural kuno berjalan amat sangat lambat.",
-    "hint": "Collocation pattern: adv+adj",
+    "hint": "Natural Collocation Pattern (adv+adj) • C1",
     "category": "Effort (C1)"
   },
   {
@@ -862,12 +862,12 @@ export const collocations = [
     "term": "strictly adhere to",
     "ipa": "/ˈstrɪktli ədˈhɪə tuː/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "B2",
     "meaningId": "mematuhi secara ketat pedoman resmi",
     "exampleEn": "Surgeons strictly adhere to sanitation guidelines.",
     "exampleId": "Dokter bedah mematuhi panduan sanitasi secara ketat.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • B2",
     "category": "Rules"
   },
   {
@@ -875,12 +875,12 @@ export const collocations = [
     "term": "strongly recommend",
     "ipa": "/ˈstrɒŋli ˌrekəˈmend/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+adv",
     "level": "B1",
     "meaningId": "sangat menganjurkan / merekomendasikan",
     "exampleEn": "We strongly recommend backing up weekly.",
     "exampleId": "Kami sangat menyarankan untuk mencadangkan data mingguan.",
-    "hint": "Collocation pattern: verb+adv",
+    "hint": "Natural Collocation Pattern (verb+adv) • B1",
     "category": "Advice"
   },
   {
@@ -888,12 +888,12 @@ export const collocations = [
     "term": "apologize profusely",
     "ipa": "/əˈpɒlədʒaɪz prəˈfjuːsli/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+adv",
     "level": "B2",
     "meaningId": "meminta maaf berkali-kali dengan tulus",
     "exampleEn": "He apologized profusely for spilling his drink.",
     "exampleId": "Dia meminta maaf berkali-kali karena menumpahkan minumannya.",
-    "hint": "Collocation pattern: verb+adv",
+    "hint": "Natural Collocation Pattern (verb+adv) • B2",
     "category": "Courtesy"
   },
   {
@@ -901,12 +901,12 @@ export const collocations = [
     "term": "cope with",
     "ipa": "/kəʊp wɪð/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "B2",
     "meaningId": "mengatasi dan bertahan menghadapi beban berat",
     "exampleEn": "Regular sport helps athletes cope with stress.",
     "exampleId": "Olahraga teratur membantu atlet mengatasi tekanan stres.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • B2",
     "category": "Resilience"
   },
   {
@@ -914,12 +914,12 @@ export const collocations = [
     "term": "stem from",
     "ipa": "/stem frɒm/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "B2",
     "meaningId": "bersumber atau berakar dari suatu penyebab",
     "exampleEn": "Many disputes stem from simple miscommunication.",
     "exampleId": "Banyak perselisihan bersumber dari miskomunikasi sederhana.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • B2",
     "category": "Causality"
   },
   {
@@ -927,12 +927,12 @@ export const collocations = [
     "term": "refrain from",
     "ipa": "/rɪˈfreɪn frɒm/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "B2",
     "meaningId": "menahan diri agar tidak melakukan sesuatu",
     "exampleEn": "Please refrain from smoking inside public areas.",
     "exampleId": "Harap menahan diri untuk tidak merokok di ruang publik.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • B2",
     "category": "Restraint"
   },
   {
@@ -940,12 +940,12 @@ export const collocations = [
     "term": "delve into",
     "ipa": "/delv ˈɪntuː/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "C1",
     "meaningId": "menyelidiki dan mendalami subjek secara tuntas",
     "exampleEn": "The scholar delved into medieval manuscripts.",
     "exampleId": "Cendekiawan itu mendalami naskah-naskah abad pertengahan.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • C1",
     "category": "Research (C1)"
   },
   {
@@ -953,12 +953,12 @@ export const collocations = [
     "term": "grapple with",
     "ipa": "/ˈɡræpl wɪð/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "C1",
     "meaningId": "bergulat keras memecahkan masalah pelik",
     "exampleEn": "Nations grapple with energy transition problems.",
     "exampleId": "Negara-negara bergulat keras dengan masalah transisi energi.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • C1",
     "category": "Struggle (C1)"
   },
   {
@@ -966,12 +966,12 @@ export const collocations = [
     "term": "culminate in",
     "ipa": "/ˈkʌlmɪneɪt ɪn/",
     "type": "collocation",
-    "pos": "collocation",
+    "pos": "verb+prep",
     "level": "C1",
     "meaningId": "mencapai puncak kulminasi pada suatu hasil",
     "exampleEn": "Years of study culminated in a doctoral degree.",
     "exampleId": "Tahun-tahun studi akhirnya berpuncak pada gelar doktoral.",
-    "hint": "Collocation pattern: verb+prep",
+    "hint": "Natural Collocation Pattern (verb+prep) • C1",
     "category": "Culmination (C1)"
   }
 ];
