@@ -1,0 +1,151 @@
+/* ==========================================================
+   VocabPintar - Design System & Global Styles
+   ========================================================== */
+
+:root {
+  /* Default: Matcha Mint Theme */
+  --theme-primary: #10B981;
+  --theme-primary-hover: #059669;
+  --theme-primary-light: #D1FAE5;
+  --theme-primary-soft: #ECFDF5;
+  --theme-accent: #047857;
+  --theme-bg-gradient: linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 50%, #EFF6FF 100%);
+  --theme-bg: #F8FAFC;
+  
+  --mascot-body: #34D399;
+  --mascot-dark: #059669;
+
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
+  --card-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 20px 30px -10px rgba(16, 185, 129, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+
+  --color-phrasal: #8B5CF6;
+  --color-phrasal-light: #EDE9FE;
+  --color-collocation: #0EA5E9;
+  --color-collocation-light: #E0F2FE;
+  --color-oxford: #F59E0B;
+  --color-oxford-light: #FEF3C7;
+
+  --color-success: #10B981;
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-theme='pink'] {
+  --theme-primary: #F43F5E;
+  --theme-primary-hover: #E11D48;
+  --theme-primary-light: #FFE4E6;
+  --theme-primary-soft: #FFF1F2;
+  --theme-accent: #BE123C;
+  --theme-bg-gradient: linear-gradient(135deg, #FFF1F2 0%, #FFF5F5 50%, #FAF5FF 100%);
+  --mascot-body: #FB7185;
+  --mascot-dark: #E11D48;
+  --card-shadow: 0 10px 25px -5px rgba(244, 63, 94, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 20px 30px -10px rgba(244, 63, 94, 0.16);
+}
+
+[data-theme='ocean'] {
+  --theme-primary: #0284C7;
+  --theme-primary-hover: #0369A1;
+  --theme-primary-light: #E0F2FE;
+  --theme-primary-soft: #F0F9FF;
+  --theme-accent: #075985;
+  --theme-bg-gradient: linear-gradient(135deg, #F0F9FF 0%, #F5F3FF 50%, #ECFDF5 100%);
+  --mascot-body: #38BDF8;
+  --mascot-dark: #0284C7;
+  --card-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 20px 30px -10px rgba(2, 132, 199, 0.16);
+}
+
+[data-theme='peach'] {
+  --theme-primary: #EA580C;
+  --theme-primary-hover: #C2410C;
+  --theme-primary-light: #FFEDD5;
+  --theme-primary-soft: #FFF7ED;
+  --theme-accent: #9A3412;
+  --theme-bg-gradient: linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 50%, #FFF1F2 100%);
+  --mascot-body: #FB923C;
+  --mascot-dark: #EA580C;
+  --card-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 20px 30px -10px rgba(234, 88, 12, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--theme-bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+input, select {
+  font-family: var(--font-body);
+}
+
+/* Animations */
+@keyframes bounceSmall {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shakeWrong {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-bounce {
+  animation: bounceSmall 1.4s infinite ease-in-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
