@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import hashlib
 import pypdf
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -995,6 +996,248 @@ def get_clean_oxford_meaning(term, pos):
                         
     return f"makna {term}"
 
+grammar_word_examples = {
+    'a': ("She bought a new laptop for her studies.", "Dia membeli sebuah laptop baru untuk keperluan belajarnya."),
+    'an': ("He ate an apple before starting the exercise.", "Dia memakan sebuah apel sebelum memulai latihan."),
+    'the': ("The sun rises in the east every single day.", "Matahari terbit di sebelah timur setiap hari."),
+    'and': ("She enjoys reading novels and learning new words.", "Dia senang membaca novel dan mempelajari kosakata baru."),
+    'or': ("You can choose tea or coffee for breakfast.", "Kamu bisa memilih teh atau kopi untuk sarapan."),
+    'but': ("He worked hard, but he still needed more time.", "Dia bekerja keras, tetapi dia masih membutuhkan lebih banyak waktu."),
+    'because': ("She stayed inside because it began to rain heavily.", "Dia berdiam di dalam rumah karena hujan mulai turun dengan lebat."),
+    'although': ("Although the exam was challenging, everyone passed.", "Meskipun ujiannya menantang, semua orang berhasil lulus."),
+    'if': ("You will make steady progress if you practice daily.", "Kamu akan mengalami kemajuan bertahap jika berlatih setiap hari."),
+    'when': ("Call me when you arrive safely at the station.", "Hubungi aku ketika kamu sudah tiba dengan selamat di stasiun."),
+    'i': ("I always review my vocabulary cards before bed.", "Saya selalu mengulang kartu kosakata saya sebelum tidur."),
+    'you': ("You have the potential to speak English fluently.", "Kamu memiliki potensi untuk berbicara bahasa Inggris dengan fasih."),
+    'we': ("We worked together to solve the complex challenge.", "Kami bekerja sama untuk memecahkan tantangan rumit tersebut."),
+    'they': ("They arrived early to prepare for the meeting.", "Mereka tiba lebih awal untuk mempersiapkan rapat."),
+    'he': ("He answered all the difficult questions correctly.", "Dia menjawab semua pertanyaan sulit tersebut dengan benar."),
+    'she': ("She delivered a brilliant speech at the conference.", "Dia menyampaikan pidato yang luar biasa di konferensi."),
+    'it': ("It is essential to stay consistent in your studies.", "Sangatlah penting untuk tetap konsisten dalam belajarmu."),
+    'this': ("This book provides very clear explanations.", "Buku ini menyajikan penjelasan yang sangat jelas."),
+    'that': ("That idea turned out to be extremely effective.", "Gagasan itu terbukti sangat efektif dalam praktiknya."),
+    'in': ("We lived in a quiet neighborhood for five years.", "Kami tinggal di lingkungan yang tenang selama lima tahun."),
+    'at': ("The train will arrive at seven o'clock tomorrow.", "Kereta akan tiba pada pukul tujuh besok pagi."),
+    'on': ("Please place the documents on the wooden table.", "Tolong letakkan dokumen-dokumen itu di atas meja kayu."),
+    'to': ("She walked to the library to borrow reference books.", "Dia berjalan ke perpustakaan untuk meminjam buku referensi."),
+    'for': ("This special gift is prepared for your graduation.", "Hadiah istimewa ini disiapkan untuk kelulusanmu."),
+    'with': ("He solved the technical problem with great patience.", "Dia memecahkan masalah teknis itu dengan penuh kesabaran."),
+    'by': ("The report was written by an experienced researcher.", "Laporan tersebut ditulis oleh seorang peneliti berpengalaman."),
+    'from': ("She received an encouraging letter from her mentor.", "Dia menerima surat yang memberi semangat dari pembimbingnya.")
+}
+
+# Helper to generate grammatically correct, natural example sentences based on POS
+def get_natural_example(term, pos, meaning_id):
+    t_lower = term.lower().strip()
+    if t_lower in grammar_word_examples:
+        return grammar_word_examples[t_lower]
+
+    clean_mean = meaning_id.split('/')[0].strip()
+    clean_mean = re.sub(r'\(.*?\)', '', clean_mean).strip()
+    if not clean_mean:
+        clean_mean = meaning_id
+        
+    h_val = int(hashlib.md5(t_lower.encode('utf-8')).hexdigest(), 16)
+    
+    if pos == 'verb':
+        verb_templates = [
+            (
+                f"You should always try to {t_lower} with great care.",
+                f"Kamu harus selalu berusaha untuk {clean_mean} dengan penuh kehati-hatian."
+            ),
+            (
+                f"They decided to {t_lower} before moving on to the next step.",
+                f"Mereka memutuskan untuk {clean_mean} sebelum melangkah ke tahap berikutnya."
+            ),
+            (
+                f"It is necessary to {t_lower} regularly to achieve good results.",
+                f"Sangat penting untuk {clean_mean} secara teratur demi meraih hasil yang baik."
+            ),
+            (
+                f"She knows how to {t_lower} effectively in any situation.",
+                f"Dia tahu cara untuk {clean_mean} secara efektif dalam situasi apa pun."
+            ),
+            (
+                f"We plan to {t_lower} together as a team tomorrow.",
+                f"Kami berencana untuk {clean_mean} bersama-sama sebagai sebuah tim besok."
+            )
+        ]
+        return verb_templates[h_val % len(verb_templates)]
+        
+    elif pos == 'noun':
+        noun_templates = [
+            (
+                f"The quality of the {t_lower} exceeded all our expectations.",
+                f"Kualitas {clean_mean} tersebut melebihi semua harapan kami."
+            ),
+            (
+                f"They gathered important information about the {t_lower}.",
+                f"Mereka mengumpulkan informasi penting tentang {clean_mean} tersebut."
+            ),
+            (
+                f"Having access to a reliable {t_lower} is essential for success.",
+                f"Memiliki akses ke {clean_mean} yang andal sangatlah penting demi keberhasilan."
+            ),
+            (
+                f"The teacher explained the concept of this {t_lower} clearly.",
+                f"Guru menjelaskan konsep {clean_mean} ini dengan sangat jelas."
+            ),
+            (
+                f"We should take good care of the {t_lower} we have.",
+                f"Kita harus menjaga dengan baik {clean_mean} yang kita miliki."
+            )
+        ]
+        return noun_templates[h_val % len(noun_templates)]
+        
+    elif pos == 'adjective':
+        adj_templates = [
+            (
+                f"The results of the project were truly {t_lower}.",
+                f"Hasil proyek tersebut sungguh-sungguh {clean_mean}."
+            ),
+            (
+                f"She maintained a {t_lower} attitude despite the challenges.",
+                f"Dia mempertahankan sikap yang {clean_mean} meskipun menghadapi banyak tantangan."
+            ),
+            (
+                f"It was a very {t_lower} experience for the entire group.",
+                f"Itu merupakan pengalaman yang sangat {clean_mean} bagi seluruh kelompok."
+            ),
+            (
+                f"Finding a {t_lower} solution required a great deal of patience.",
+                f"Menemukan solusi yang {clean_mean} membutuhkan banyak kesabaran."
+            ),
+            (
+                f"His explanation was remarkably clear and {t_lower}.",
+                f"Penjelasannya sangat jelas dan {clean_mean}."
+            )
+        ]
+        return adj_templates[h_val % len(adj_templates)]
+        
+    elif pos == 'adverb':
+        adv_templates = [
+            (
+                f"She completed the complex task {t_lower} without any trouble.",
+                f"Dia menyelesaikan tugas rumit tersebut {clean_mean} tanpa kendala apa pun."
+            ),
+            (
+                f"The entire team worked {t_lower} to meet the deadline.",
+                f"Seluruh tim bekerja {clean_mean} demi memenuhi tenggat waktu."
+            ),
+            (
+                f"He spoke {t_lower} during the international presentation.",
+                f"Dia berbicara {clean_mean} selama presentasi internasional berlangsung."
+            ),
+            (
+                f"The system operates {t_lower} under normal conditions.",
+                f"Sistem beroperasi {clean_mean} di bawah kondisi normal."
+            ),
+            (
+                f"They responded {t_lower} to the unexpected changes.",
+                f"Mereka merespons {clean_mean} terhadap perubahan-perubahan tak terduga."
+            )
+        ]
+        return adv_templates[h_val % len(adv_templates)]
+        
+    elif pos == 'preposition':
+        prep_templates = [
+            (
+                f"The meeting took place {t_lower} the main conference hall.",
+                f"Pertemuan tersebut berlangsung {clean_mean} aula konferensi utama."
+            ),
+            (
+                f"Important documents were kept safely {t_lower} the desk.",
+                f"Dokumen-dokumen penting disimpan dengan aman {clean_mean} meja kerja."
+            ),
+            (
+                f"A bright light appeared {t_lower} the dark horizon.",
+                f"Cahaya terang muncul {clean_mean} cakrawala yang gelap."
+            )
+        ]
+        return prep_templates[h_val % len(prep_templates)]
+        
+    elif pos == 'conjunction':
+        conj_templates = [
+            (
+                f"They stayed focused {t_lower} new challenges arose.",
+                f"Mereka tetap fokus {clean_mean} tantangan baru bermunculan."
+            ),
+            (
+                f"Success comes {t_lower} hard work and patience meet.",
+                f"Kesuksesan datang {clean_mean} kerja keras dan kesabaran bertemu."
+            ),
+            (
+                f"She decided to continue {t_lower} the task seemed difficult.",
+                f"Dia memutuskan untuk terus maju {clean_mean} tugas tersebut tampak sulit."
+            )
+        ]
+        return conj_templates[h_val % len(conj_templates)]
+        
+    elif pos in ['pronoun', 'determiner']:
+        pron_templates = [
+            (
+                f"Everyone agreed that {t_lower} deserved recognition for the work.",
+                f"Semua orang sepakat bahwa {clean_mean} pantas mendapatkan apresiasi atas pekerjaan itu."
+            ),
+            (
+                f"It is important to remember what {t_lower} achieved together.",
+                f"Sangat penting untuk mengingat apa yang {clean_mean} capai bersama."
+            )
+        ]
+        return pron_templates[h_val % len(pron_templates)]
+        
+    else:
+        other_templates = [
+            (
+                f"We must consider this {t_lower} in our final calculation.",
+                f"Kita harus mempertimbangkan {clean_mean} ini dalam perhitungan akhir kita."
+            ),
+            (
+                f"The final count reached {t_lower} after the evaluation.",
+                f"Hitungan akhir mencapai {clean_mean} setelah evaluasi selesai."
+            )
+        ]
+        return other_templates[h_val % len(other_templates)]
+
+# Helper to generate natural example sentences for Phrasal Verbs
+def get_natural_pv_example(term_raw, base_term, meaning_id):
+    clean_mean = meaning_id.split('/')[0].strip()
+    clean_mean = re.sub(r'\(.*?\)', '', clean_mean).strip()
+    
+    # Strip (sb), (sth), sb/sth, /sth, etc.
+    clean_base = re.sub(r'\s*\([^)]*\)', '', base_term)
+    clean_base = re.sub(r'\b(sb|sth)\b[/\s]*', '', clean_base)
+    clean_base = re.sub(r'[/\s]+(sb|sth)\b', '', clean_base)
+    clean_base = re.sub(r'^[/\s]+|[/\s]+$', '', clean_base).strip()
+    if not clean_base:
+        clean_base = term_raw.lower().replace(' sth', '').replace(' sb', '').strip()
+        
+    h_val = int(hashlib.md5(clean_base.encode('utf-8')).hexdigest(), 16)
+    
+    pv_templates = [
+        (
+            f"It takes patience and determination to {clean_base} successfully.",
+            f"Dibutuhkan kesabaran dan tekad untuk {clean_mean} dengan sukses."
+        ),
+        (
+            f"They had to {clean_base} before making their final decision.",
+            f"Mereka harus {clean_mean} sebelum mengambil keputusan akhir."
+        ),
+        (
+            f"She was able to {clean_base} after weeks of careful preparation.",
+            f"Dia berhasil {clean_mean} setelah berminggu-minggu persiapan yang matang."
+        ),
+        (
+            f"We are determined to {clean_base} in order to solve the problem.",
+            f"Kami bertekad untuk {clean_mean} demi memecahkan masalah tersebut."
+        ),
+        (
+            f"You will need to {clean_base} whenever the situation requires it.",
+            f"Kamu perlu {clean_mean} setiap kali situasinya menuntut hal tersebut."
+        )
+    ]
+    return pv_templates[h_val % len(pv_templates)]
+
 # 8. Load Handcrafted Rich Vocabularies
 print("Loading handcrafted rich dataset...")
 import importlib.util
@@ -1082,7 +1325,6 @@ for line in ox_lines:
         # Check master overrides
         if term_clean in oxford_master_overrides:
             h_mean = oxford_master_overrides[term_clean]
-            h_id = f"Menguasai {h_mean} sangat bermanfaat untuk kemampuan bahasa Inggris."
         item_id = f"ox-{re.sub(r'[^a-z0-9]+', '-', term_clean)}-{count}"
         oxford_vocab.append({
             "id": item_id,
@@ -1110,10 +1352,8 @@ for line in ox_lines:
         stem = re.sub(r'\(.*?\)', '', term_clean).strip()
         ipa = ipa_data.get(stem, f"/{term_clean}/")
         
-    # 4. Contextual example sentences
-    ex_en = f"Understanding this {term_raw} is essential for daily conversation."
-    first_meaning = meaning_id.split('/')[0].strip()
-    ex_id = f"Memahami {first_meaning} ini sangat penting dalam percakapan sehari-hari."
+    # 4. Contextual example sentences tailored to Part of Speech
+    ex_en, ex_id = get_natural_example(term_raw, pos, meaning_id)
     
     item_id = f"ox-{re.sub(r'[^a-z0-9]+', '-', term_clean)}-{count}"
     oxford_vocab.append({
@@ -1249,12 +1489,11 @@ for line in pv_lines:
             meaning_id = resolve_pv_meaning(term_raw, base_term, defn_en)
             
             # Clean pronunciation IPA
-            clean_phonetic = base_term.replace(' (to ...)', '').replace(' (to )', '').strip()
+            clean_phonetic = re.sub(r'\s*\([^)]*\)', '', base_term).strip()
             ipa_val = f"/{clean_phonetic}/"
             
             first_m = meaning_id.split('/')[0].strip()
-            ex_en = f"She decided to {base_term} without delay."
-            ex_id = f"Dia memutuskan untuk {first_m} tanpa menunda lagi."
+            ex_en, ex_id = get_natural_pv_example(term_raw, base_term, meaning_id)
             
             item_id = f"pv-{re.sub(r'[^a-z0-9]+', '-', base_term)}-{pv_count}"
             phrasal_verbs.append({
